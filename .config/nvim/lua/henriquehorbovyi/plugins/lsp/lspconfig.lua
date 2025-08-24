@@ -127,7 +127,9 @@ return {
 		lspconfig.gopls.setup({ capabilities = capabilities })
 
 		-- Kotlin LSP setup
-		lspconfig.kotlin_lsp.setup({ capabilities = capabilities })
+		-- TODO: I'd like to initialize kotlin LSP like that and not in init.lua
+
+		-- lspconfig.kotlin_lsp.setup({ capabilities = capabilities })
 
 		-- Add other LSP servers here
 	end,

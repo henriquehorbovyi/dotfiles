@@ -6,10 +6,10 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 -- Kotlin LSP import setup
--- vim.lsp.enable("kotlin_lsp", true)
--- vim.lsp.config("kotlin_lsp", {
--- 	single_file_support = false,
--- })
---
+vim.lsp.enable("kotlin_lsp", true)
+vim.lsp.config("kotlin_lsp", {
+	single_file_support = false,
+})
+
 require("henriquehorbovyi.core")
 require("henriquehorbovyi.lazy")
