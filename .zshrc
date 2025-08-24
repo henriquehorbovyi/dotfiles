@@ -1,28 +1,68 @@
-# Add to ~/.zshrc for cozy welcome
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-#fi
 
+# --------- Zsh Configuraion ---------- 
+# Path to your Oh My Zsh installation.
+
+export ZSH="$HOME/.oh-my-zsh"
+source $ZSH/oh-my-zsh.sh
+
+plugins=(
+    git
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+    # zsh-vi-mode
+)
+
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+    export EDITOR='vim'
+else
+    export EDITOR='nvim'
+fi
+
+# Custom  Aliases
+alias fzfp='fzf --tac --preview="bat --color=always {}"'
+alias nvimf='nvim $(fzfp)'
+alias studiof='studio $(fzfp)'
+alias cdf='cd $(find . -maxdepth 4 -type d | fzf --tac)'
+alias gbf='git branch | fzf | sed "s/^[ *]//"'
+alias gpf='git push origin $(gbf)'
+alias gswf='git switch $(gbf)'
+alias gswc='git-switch-extension' # git switch -c $(dashfy <branch name>)
+
+# Dashfy 
+export PATH="$HOME/Workspace/Personal/shell/dashfy:$PATH"
+
+# Amper setup
+export PATH="$HOME/.config/amper:$PATH"
+# SDKMAN SETUP
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# Homebrew
+# TODO: Need to check if os is macos 
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Go language setup
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
+# Starship setup
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
+eval "$(starship init zsh)"
+
+
+
+# ---------------------------------------------------------
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-
-# Path to your Oh My Zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time Oh My Zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-#ZSH_THEME="powerlevel10k/powerlevel10k"
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -79,30 +119,11 @@ export ZSH="$HOME/.oh-my-zsh"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-plugins=(
-  git
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-  # zsh-vi-mode
-)
-
-#
-# UNCOMMENT THAT TO USE oh-my-zsh
-source $ZSH/oh-my-zsh.sh
-
 # User configuration
-
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='nvim'
-# fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch $(uname -m)"
@@ -114,48 +135,3 @@ source $ZSH/oh-my-zsh.sh
 # - $ZSH_CUSTOM/aliases.zsh
 # - $ZSH_CUSTOM/macos.zsh
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# My Aliases
-alias pfzf='fzf --tac --preview="bat --color=always {}"'
-alias nvimf='nvim $(pfzf)'
-alias studiof='studio $(pfzf)'
-alias cdf='cd $(find . -maxdepth 4 -type d | fzf --tac)'
-alias gbf='git branch | fzf | sed "s/^[ *]//"'
-alias gpf='git push origin $(gbf)'
-alias gswf='git switch $(gbf)'
-alias gswc='git-switch-extension' # git switch -c $(dashfy <branch name>)
-
-# Dashfy 
-export PATH="$HOME/Workspace/Personal/shell/dashfy:$PATH"
-
-# Amper setup
-export PATH="$HOME/.config/amper:$PATH"
-
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
-# SDKMAN SETUP
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-# Homebrew
-export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
-
-# Set up fzf key bindings and fuzzy completion
-source <(fzf --zsh)
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# Go language setup
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
-
-# Starship setup
-export STARSHIP_CONFIG=~/.config/starship/starship.toml
-eval "$(starship init zsh)"
-
