@@ -3,7 +3,6 @@
 # Path to your Oh My Zsh installation.
 
 export ZSH="$HOME/.oh-my-zsh"
-source $ZSH/oh-my-zsh.sh
 
 plugins=(
     git
@@ -11,6 +10,9 @@ plugins=(
     zsh-syntax-highlighting
     # zsh-vi-mode
 )
+
+# This line should be placed after plugins
+source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
