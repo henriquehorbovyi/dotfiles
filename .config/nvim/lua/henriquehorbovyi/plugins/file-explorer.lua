@@ -1,5 +1,5 @@
 -- Let's have our file explorer
--- For now I'm using nvim-tree
+-- Uncomment to have a file explorer
 return {
 	"nvim-tree/nvim-tree.lua",
 	dependencies = "nvim-tree/nvim-web-devicons",

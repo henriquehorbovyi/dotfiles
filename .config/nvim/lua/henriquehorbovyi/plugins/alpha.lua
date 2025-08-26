@@ -1,5 +1,7 @@
 -- Alpha Dashboard Plugin Configuration
+-- Uncomment to have a styled grerting screen
 return {
+	--[[
     'goolord/alpha-nvim',
     event = 'VimEnter',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
@@ -123,4 +125,5 @@ return {
             end,
         })
     end
+--]]
 }

@@ -32,5 +32,3 @@ opt.backspace = "indent,eol,start" -- allow backspace to indent
 
 -- Clipboard is set as default
 -- opt.clipboard:append("unnamedplus") -- use system clipboard as default register
-
-

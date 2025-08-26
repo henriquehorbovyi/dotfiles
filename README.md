@@ -1,19 +1,28 @@
 ## Dotfiles Doc
 
-### 🔧 Installation 
-Run the following command inside your dotfiles direcotory:
-```shell
-stow . 
+> [!NOTE]
+> I'd like to create a install.sh file to automate the installation process. 
 
-```
+
+### 🔧 Installation 
+- Macos
+    - Install Xcode command line tools beforehand `xcode-select --install`
+    - Install [brew](https://brew.sh/)  
+    - `brew install git` to have git installed in your country 
+
+- Linux/Common
+    - `git clone https://github.com/henriquehorbovyi/dotfiles.git $HOME/dotfiles`
+    - `cd dotfiles`
+    - run `stow .`
+
 Congratulations!! 🖥️🔥
 
 ### 📦 Dotfiles 
 - Zsh
 - Oh-my-zsh
+- Ghostty
 - Starship
 - Tmux
-- Ghostty
 - Nvim
 
 ### ⚠️ Important

@@ -25,22 +25,28 @@ return {
 		})
 
 		mason_lspconfig.setup({
-			automatic_enable = false,
+			automatic_enable = true,
 			-- servers for mason to install
 			ensure_installed = {
 				"lua_ls",
+				"bashls",
 				"gopls",
 				"clangd",
 				"kotlin_lsp",
+				"kotlin_language_server",
 			},
 		})
 
 		mason_tool_installer.setup({
 			ensure_installed = {
-				"stylua", -- lua formatter
+				"stylua",
 				"clangd",
 				"goimports",
+				"gofumpt",
 				"ktlint",
+				"clang-format",
+				"shellcheck",
+				"delve", -- Go debugger
 			},
 		})
 	end,

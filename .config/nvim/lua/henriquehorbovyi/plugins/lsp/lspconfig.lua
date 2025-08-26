@@ -92,14 +92,23 @@ return {
 			[vim.diagnostic.severity.INFO] = " ",
 		}
 
-		-- Set the diagnostic config with all icons
+		-- Diagnostic configuration
 		vim.diagnostic.config({
+			virtual_text = true,
 			signs = {
-				text = signs, -- Enable signs in the gutter
+				text = signs,
 			},
-			virtual_text = true, -- Specify Enable virtual text for diagnostics
-			underline = true, -- Specify Underline diagnostics
-			update_in_insert = false, -- Keep diagnostics active in insert mode
+			update_in_insert = false,
+			underline = true,
+			severity_sort = true,
+			float = {
+				focusable = false,
+				style = "minimal",
+				border = "rounded",
+				source = "always",
+				header = "",
+				prefix = "",
+			},
 		})
 
 		-- Lua LSP setup
@@ -123,10 +132,55 @@ return {
 			},
 		})
 
-		-- Go LSP setup
-		lspconfig.gopls.setup({ capabilities = capabilities })
+		-- Go (gopls)
+		lspconfig.gopls.setup({
+			capabilities = capabilities,
+			settings = {
+				gopls = {
+					experimentalPostfixCompletions = true,
+					analyses = {
+						unusedparams = true,
+						shadow = true,
+					},
+					staticcheck = true,
+					gofumpt = true,
+				},
+			},
+			init_options = {
+				usePlaceholders = true,
+			},
+		})
 
-		-- Kotlin LSP setup
+		-- C/C++ (clangd)
+		lspconfig.clangd.setup({
+			capabilities = capabilities,
+			cmd = {
+				"clangd",
+				"--background-index",
+				"--clang-tidy",
+				"--header-insertion=iwyu",
+				"--completion-style=detailed",
+				"--function-arg-placeholders",
+				"--fallback-style=llvm",
+			},
+			init_options = {
+				usePlaceholders = true,
+				completeUnimported = true,
+				clangdFileStatus = true,
+			},
+		})
+
+		lspconfig.bashls.setup({
+			capabilities = capabilities,
+		})
+
+		-- Kotlin Community LSP pluging
+		-- NOTE: This is an alternative while Kotlin Official is not that good!
+		lspconfig.kotlin_language_server.setup({
+			capabilities = capabilities,
+		})
+
+		-- Kotlin Official LSP setup
 		-- TODO: I'd like to initialize kotlin LSP like that and not in init.lua
 
 		-- lspconfig.kotlin_lsp.setup({ capabilities = capabilities })

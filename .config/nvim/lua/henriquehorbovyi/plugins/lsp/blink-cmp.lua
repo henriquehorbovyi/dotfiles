@@ -31,7 +31,13 @@ return {
 		},
 
 		-- experimental signature help support
-		signature = { enabled = true },
+		signature = {
+
+			enabled = true,
+			window = {
+				border = "rounded",
+			},
+		},
 
 		-- Custom keymaps - you can override these
 		completion = {
@@ -42,6 +48,7 @@ return {
 				},
 			},
 			menu = {
+				border = "rounded",
 				draw = {
 					treesitter = { "lsp" },
 				},

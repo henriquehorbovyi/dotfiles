@@ -8,11 +8,12 @@ return {
 			formatters_by_ft = {
 				kotlin = { "ktlint" },
 				go = { "goimports", "gofmt" },
+				c = { "clang_format" },
+				cpp = { "clang_format" },
 				json = { "prettier" },
 				yaml = { "prettier" },
-				markdown = { "prettier" },
+				markdown = { "prettier", "marksman" },
 				lua = { "stylua" },
-				python = { "isort", "black" },
 			},
 			format_on_save = {
 				lsp_fallback = true,
