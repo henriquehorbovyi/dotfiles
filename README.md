@@ -30,8 +30,7 @@ Congratulations!! 🖥️🔥
 Make sure you have all dependencies before running setup script. 
 ##### Stow 
 
-GNU Stow is a symlink farm manager - it creates symlinks for all files inside a directory and pass to it
-In order to GNU stow to work you should place files inside this directory as if they were in your Home directory.
+GNU Stow is a symlink farm manager - it creates symlinks for all files inside a directory and pass to it. In order to GNU stow to work you should place files inside this directory as if they were in your Home directory.
 
 #### Ghostty
 On linux Ghostty lives in $HOME/.config/ghostty/config and on Macos it lives in $HOME/Library/Application\ Support/com.mitchellh.ghostty/config.
