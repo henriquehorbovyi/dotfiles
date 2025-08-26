@@ -21,7 +21,7 @@ return {
 				vim.keymap.set("n", "<C-e>", api.node.open.replace_tree_buffer, opts("Open: In Place"))
 				vim.keymap.set("n", "<C-k>", api.node.show_info_popup, opts("Info"))
 				vim.keymap.set("n", "<C-r>", api.fs.rename_sub, opts("Rename: Omit Filename"))
-				vim.keymap.set("n", "<C-t>", api.node.open.tab, opts("Open: New Tab"))
+				vim.keymap.set("n", "<CR>", api.node.open.tab, opts("Open: New Tab"))
 				vim.keymap.set("n", "<C-v>", api.node.open.vertical, opts("Open: Vertical Split"))
 				vim.keymap.set("n", "<C-x>", api.node.open.horizontal, opts("Open: Horizontal Split"))
 				vim.keymap.set("n", "<BS>", api.node.navigate.parent_close, opts("Close Directory"))
@@ -79,10 +79,14 @@ return {
 				vim.keymap.set("n", "<2-RightMouse>", api.tree.change_root_to_node, opts("CD"))
 			end,
 
+			sync_root_with_cwd = true,
 			update_focused_file = {
 				enable = true,
 				update_cwd = true,
+				update_root = true,
 			},
+			respect_buf_cwd = true,
+			update_cwd = true,
 			renderer = {
 				root_folder_modifier = ":t",
 				-- These icons are visible when you install web-devicons
@@ -123,7 +127,7 @@ return {
 				},
 			},
 			view = {
-				width = 30,
+				width = 25,
 				side = "left",
 			},
 		})
@@ -143,6 +147,6 @@ return {
 				vim.api.nvim_buf_set_name(0, "File Explorer")
 			end,
 		})
+		vim.g.nvim_tree_respect_buf_cwd = 1
 	end,
-	-- Set custom buffer name after setup
 }

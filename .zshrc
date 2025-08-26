@@ -1,7 +1,6 @@
 
 # --------- Zsh Configuraion ---------- 
 # Path to your Oh My Zsh installation.
-
 export ZSH="$HOME/.oh-my-zsh"
 export XDG_CONFIG_HOME="$HOME/.config"
 

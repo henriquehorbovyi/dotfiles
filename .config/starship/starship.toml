@@ -1,4 +1,3 @@
-# ------------------ pure ------------------- 
 format = """
 $hostname\
 $directory\
@@ -14,6 +13,8 @@ $c\
 $cpp\
 $line_break\
 $character"""
+
+add_newline = false
 
 [fill]
 symbol = " "
