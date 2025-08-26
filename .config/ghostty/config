@@ -1,0 +1,131 @@
+# This is the configuration file for Ghostty.
+#
+# This template file has been automatically created at the following
+# path since Ghostty couldn't find any existing config files on your system:
+#
+#   /Users/henriquehorbovyi/Library/Application Support/com.mitchellh.ghostty/config
+#
+# The template does not set any default options, since Ghostty ships
+# with sensible defaults for all options. Users should only need to set
+# options that they want to change from the default.
+#
+# Run `ghostty +show-config --default --docs` to view a list of
+# all available config options and their default values.
+#
+# Additionally, each config option is also explained in detail
+# on Ghostty's website, at https://ghostty.org/docs/config.
+
+# Config syntax crash course
+# ==========================
+# # The config file consists of simple key-value pairs,
+# # separated by equals signs.
+# font-family = Iosevka
+# window-padding-x = 2
+#
+# # Spacing around the equals sign does not matter.
+# # All of these are identical:
+# key=value
+# key= value
+# key =value
+# key = value
+#
+# # Any line beginning with a # is a comment. It's not possible to put
+# # a comment after a config option, since it would be interpreted as a
+# # part of the value. For example, this will have a value of "#123abc":
+#
+# # Empty values are used to reset config keys to default.
+# key =
+#
+# # Some config options have unique syntaxes for their value,
+# # which is explained in the docs for that config option.
+# # Just for example:
+# resize-overlay-duration = 4s 200ms
+
+# Cursor style
+cursor-style = block  
+cursor-text = "#070707"
+cursor-color = "#ffffff"
+cursor-style-blink = true
+# cursor-invert-fg-bg = true
+
+font-family = "JetBrains Mono"
+font-size = 16
+
+
+# palette = 0=#51576d
+# when typing 
+#palette = 1=#00FF00 
+
+# when valid command
+#palette = 2=#ff0000 
+
+# folder color
+#palette = 6=#ff0000
+
+# smart completion
+#palette = 8=#ff0000
+
+# background = #070707
+# foreground = #f0f0f0
+# selection-background = #202020
+# selection-foreground = #dfdfdf
+
+# theme = "Jellybeans"
+# themes I liked: 
+# mellow
+# rose-pine
+# vesper
+# CutiePro
+
+
+# Window styling
+window-decoration = true
+window-title-font-family = "SF Pro Display"
+unfocused-split-opacity = 0.8
+window-padding-balance = true
+mouse-scroll-multiplier = 2
+
+window-save-state = always
+macos-titlebar-style = transparent 
+window-colorspace= "display-p3"
+
+# Padding for breathing room
+# window-padding-x = 8
+# window-padding-y = 8
+
+
+# Ghostty Retro Cute Theme
+# Matches the Starship and nvim configuration colors for a cohesive look 
+background = #0A0A0A 
+foreground = #f8f8f2
+
+selection-background = #44475a
+selection-foreground = #f8f8f2
+
+
+palette = 0=#44475a
+palette = 1=#ff7675
+palette = 2=#c7e9b0
+palette = 3=#f9e79f
+palette = 4=#f8b195
+palette = 5=#f4a6cd
+palette = 6=#f5d5ae
+palette = 7=#f8f8f2
+
+palette = 8=#8a8080
+palette = 9=#ff5555
+palette = 10=#50fa7b
+palette = 11=#f1c40f
+
+# Character color (corrently set by starship $) 
+palette = 12=#8be9fd 
+palette = 13=#ff6b9d
+palette = 14=#8be9fd
+palette = 15=#ffffff
+
+palette = 16=#e17055
+palette = 17=#a29bfe
+palette = 18=#fdcb6e
+palette = 19=#00cec9
+palette = 20=#6c5ce7
+palette = 21=#fd79a8
