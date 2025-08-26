@@ -9,7 +9,6 @@ plugins=(
     git
     zsh-autosuggestions
     zsh-syntax-highlighting
-    # zsh-vi-mode
 )
 
 # This line should be placed after plugins
