@@ -32,10 +32,11 @@ alias gswf='git switch $(gbf)'
 alias gswc='git-switch-extension' # git switch -c $(dashfy <branch name>)
 
 # Dashfy 
-export PATH="$HOME/Workspace/Personal/shell/dashfy:$PATH"
+export PATH="$HOME/.config/dashfy:$PATH"
 
 # Amper setup
 export PATH="$HOME/.config/amper:$PATH"
+
 # SDKMAN SETUP
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
@@ -44,7 +45,6 @@ export SDKMAN_DIR="$HOME/.sdkman"
 # TODO: Need to check if os is macos 
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 eval "$(/opt/homebrew/bin/brew shellenv)"
-
 
 # NOTE: Zoxide
 eval "$(zoxide init zsh)"
@@ -74,7 +74,6 @@ export PATH=$PATH:$GOPATH/bin
 # Starship setup
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init zsh)"
-
 
 
 # ---------------------------------------------------------

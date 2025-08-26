@@ -12,6 +12,12 @@ if [ ! -d "$HOME/.config/starship" ]; then
     curl -sS https://starship.rs/install.sh | sh
 fi 
 
+# Installing dashfy - https://github.com/henriquehorbovyi/dashfy
+if [ ! -d "$HOME/.config/dashfy" ]; then
+    echo "Installing dashfy..."
+    git clone https://github.com/henriquehorbovyi/dashfy "$HOME/dotfiles/.config/dashfy"
+fi
+
 # Stow - Symlinking all dotfiles
 stow .
 echo "All done! 💻"
