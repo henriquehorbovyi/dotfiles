@@ -9,7 +9,7 @@
 - Macos
     - Install Xcode command line tools beforehand `xcode-select --install`
     - Install [brew](https://brew.sh/)  
-    - `brew install git` to have git installed in your country 
+    - `brew install git` to have git installed 
 
 - Linux/Common
     - `git clone https://github.com/henriquehorbovyi/dotfiles.git $HOME/dotfiles`
