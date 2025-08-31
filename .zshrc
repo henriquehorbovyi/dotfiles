@@ -7,7 +7,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 plugins=(
     git
     zsh-autosuggestions
-    zsh-syntax-highlighting
+    # zsh-syntax-highlighting
 )
 
 # This line should be placed after plugins
@@ -21,9 +21,6 @@ else
 fi
 
 # Custom  Aliases
-# alias fzfp='fzf --tac --preview="bat --color=always {}"'
-# alias nvimf='nvim $(fzfp)'
-# alias studiof='studio $(fzfp)'
 alias cdf='cd $(find . -maxdepth 4 -type d | fzf --tac)'
 alias gbf='git branch | fzf | sed "s/^[ *]//"'
 alias gpf='git push origin $(gbf)'
@@ -42,8 +39,8 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 # Homebrew
 # TODO: Need to check if os is macos 
-export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+# eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # NOTE: Zoxide
 eval "$(zoxide init zsh)"

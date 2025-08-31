@@ -1,0 +1,171 @@
+/* Main window */
+window {
+    margin: 0px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: rgba(40, 40, 40, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 12px;
+    font-family: "SF Pro Display", "Segoe UI", system-ui, sans-serif;
+    font-size: 14px;
+}
+
+/* Search input */
+#input {
+    margin: 16px 20px 8px 20px;
+    padding: 12px 16px;
+    border: none;
+    background-color: rgba(60, 60, 60, 0.8);
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 16px;
+    font-weight: 400;
+    outline: none;
+    box-shadow: none;
+}
+
+#input:focus {
+    background-color: rgba(70, 70, 70, 0.9);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Main content area */
+#outer-box {
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    background-color: transparent;
+}
+
+/* Scrollable area */
+#scroll {
+    margin: 0px;
+    padding: 0px 8px 12px 8px;
+    border: none;
+    background-color: transparent;
+}
+
+/* Inner container */
+#inner-box {
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    background-color: transparent;
+}
+
+/* Section headers */
+#text {
+    margin: 16px 20px 8px 20px;
+    padding: 0px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 16px;
+    font-weight: 500;
+    background-color: transparent;
+    border: none;
+}
+
+/* Entry items */
+#entry {
+    margin: 2px 12px;
+    padding: 8px 16px;
+    border: none;
+    background-color: transparent;
+    border-radius: 8px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 15px;
+    font-weight: 400;
+    transition: all 0.2s ease;
+}
+
+#entry:selected {
+    background-color: rgba(130, 130, 130, 0.2);
+    color: white;
+    outline: none;
+}
+
+#entry:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#entry:selected:hover {
+    background-color: rgba(70, 130, 240, 0.9);
+}
+
+/* Entry images/icons */
+#entry image {
+    margin-right: 12px;
+    min-width: 24px;
+    min-height: 24px;
+}
+
+/* Entry text */
+#entry label {
+    color: inherit;
+    font-weight: inherit;
+}
+
+/* Selected entry text */
+#entry:selected label {
+    color: white;
+    font-weight: 500;
+}
+
+/* Right-aligned category labels */
+#entry .category {
+    margin-left: auto;
+    padding-left: 20px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 13px;
+    font-weight: 400;
+}
+
+#entry:selected .category {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Bottom action bar */
+.action-bar {
+    margin: 8px 20px 16px 20px;
+    padding: 8px 0px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: transparent;
+}
+
+.action-item {
+    padding: 6px 12px;
+    margin-right: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    background-color: rgba(60, 60, 60, 0.5);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* Custom scrollbar */
+scrollbar {
+    width: 6px;
+    background-color: transparent;
+}
+
+scrollbar slider {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    min-height: 20px;
+}
+
+scrollbar slider:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Remove default focus indicators */
+* {
+    outline: none;
+}
+
+/* Placeholder styling when no results */
+.no-results {
+    margin: 40px 20px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+}

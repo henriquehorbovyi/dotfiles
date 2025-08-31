@@ -1,3 +1,7 @@
+
+continuation_prompt = "[... ](dimmed white)"
+add_newline = false
+
 format = """
 $hostname\
 $directory\
@@ -5,16 +9,17 @@ $git_branch\
 $git_state\
 $git_status\
 $git_metrics\
-$fill\
+$character"""
+
+
+right_format = """
 $kotlin\
 $java\
 $golang\
 $c\
 $cpp\
-$line_break\
-$character"""
+"""
 
-add_newline = false
 
 [fill]
 symbol = " "
@@ -40,7 +45,7 @@ format = "[$symbol $branch]($style)"
 style = "#6C6C6C"
 
 [git_status]
-format = "[[($conflicted$untracked$modified$renamed$deleted)](218)[($staged)](green)($diverged$ahead_behind$stashed)](#00cec9)"
+format = "[[($conflicted$untracked$modified$renamed$deleted)](218)[($staged)](green)($diverged$ahead_behind$stashed)](#00cec9) "
 up_to_date = ""
 ahead = "⇡"
 behind = "⇣"

@@ -1,0 +1,27 @@
+CONFIG
+# Wofi Configuration File
+width=800
+height=600
+location=center
+show=drun
+prompt=Search for apps and commands...
+filter_rate=100
+allow_markup=true
+no_actions=false
+halign=fill
+orientation=vertical
+content_halign=fill
+insensitive=true
+allow_images=true
+image_size=24
+gtk_dark=true
+layer=overlay
+term=kitty
+hide_scroll=true
+print_command=true
+columns=1
+sort_order=alphabetical
+insensitive=true
+matching=contains
+key_expand=Tab
+key_exit=Escape

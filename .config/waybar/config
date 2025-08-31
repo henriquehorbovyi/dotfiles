@@ -1,86 +1,120 @@
-{
+ {
+    //-*- mode: jsonc -*-
     "layer": "top",
     "position": "top",
-    "height": 30,
-    "width": 1920,
-    "spacing": 4,
+    "padding":0,
+    "margin-bottom": -6,
+    "mode": "dock",
+    "height": 35,
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
 
-    "modules-left": ["hyprland/workspaces", "hyprland/window"],
-    "modules-center": ["clock"],
-    "modules-right": ["pulseaudio", "network", "battery", "tray"],
+    "modules-left": [
+        "custom/launcher",
+        "hyprland/window"
+    ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "custom/pacman",
+        "bluetooth",
+        "custom/mic",
+        "pulseaudio",
+        "network",
+        "cpu",
+        "clock",
+        "custom/power",
+    ],
 
     "hyprland/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
-        "warp-on-scroll": false,
-        "format": "{icon}",
+        "on-click": "activate",
+        "format": "{icon}  {id}",
         "format-icons": {
-            "1": "1",
-            "2": "2", 
-            "3": "3",
-            "4": "4",
-            "5": "5",
-            "6": "6",
-            "7": "7",
-            "8": "8",
-            "9": "9",
-            "10": "10"
+            "urgent": "",
+            "focused": "",
+            "default": ""
         }
     },
 
     "hyprland/window": {
-        "format": "{}",
-        "max-length": 50,
+        "format": "   {}",
         "separate-outputs": true
     },
 
-    "tray": {
-        "spacing": 10
-    },
-
-    "clock": {
-        "timezone": "America/Sao_Paulo",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%H:%M - %d/%m/%Y}"
-    },
-
-    "battery": {
-        "states": {
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
-        "format-icons": ["", "", "", "", ""]
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-muted": " Muted",
+        "on-click": "pavucontrol",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        }
     },
 
     "network": {
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-wifi": "   {essid}",
+        "format-ethernet": " {ifname}",
+        "format-disconnected": "⚠ Disconnected",
+        "on-click": "nm-connection-editor"
     },
 
-    "pulseaudio": {
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        },
-        "on-click": "pavucontrol"
-    }
+    "memory": {
+        "format": "  {}%",
+        "tooltip": true
+    },
+
+    "cpu": {
+        "format": "  {usage}%",
+        "tooltip": true
+    },
+
+    "custom/launcher": {
+        "format": "",
+        "on-click": "wofi --show drun",
+        "tooltip": false
+    },
+
+    "custom/power": {
+        "format": "",
+        "on-click": "~/.config/waybar/scripts/power.sh",
+        "tooltip": false
+    },
+    "clock": {
+        "format": "{:%a %d %b %H:%M}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },    
+    "bluetooth": {
+        "format": "",
+        "format-disabled": "",
+        "format-connected": "",
+        "tooltip-format": "{device_alias}",
+        "on-click": "blueman-manager"
+    },
+   "custom/mic": {
+       "format": "{}",
+       "exec": "~/.config/waybar/scripts/mic_status.sh",
+       "on-click": "~/.config/waybar/scripts/mic_switcher.sh",
+       "interval": 5,
+       "tooltip": false
+   },
+ "custom/pacman": {
+    "format": "{icon} {}",
+    "format-icons": {
+       "pending-updates": " ",
+        "updated": " "
+    },
+    "interval": 30,
+    "exec": "waybar-updates",
+      "return-type": "json",
+  },
 }
+
