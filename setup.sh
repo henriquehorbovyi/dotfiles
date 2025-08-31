@@ -17,7 +17,7 @@ fi
 # Installing dashfy - https://github.com/henriquehorbovyi/dashfy
 if [ ! -d "$HOME/.config/dashfy" ]; then
     echo "Installing dashfy..."
-    git clone https://github.com/henriquehorbovyi/dashfy "$HOME/dotfiles/.config/dashfy"
+    git clone https://github.com/henriquehorbovyi/dashfy "$HOME/.config/dashfy"
 fi
 
 # Install Zsh if not present
