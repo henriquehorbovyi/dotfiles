@@ -1,5 +1,9 @@
 vim.g.mapleader = " "
 local keymap = vim.keymap
+
+-- Return to normal mode
+keymap.set("i", "kj", "<Esc>")
+
 -- keymap.set('n', '<leader>s', ":source %<CR>", { desc = "Source file" })
 
 -- keymap.set("n", "<leader>ex", vim.cmd.Ex) -- Exit file
