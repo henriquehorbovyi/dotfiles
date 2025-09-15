@@ -9,17 +9,15 @@ $git_branch\
 $git_state\
 $git_status\
 $git_metrics\
-$character"""
-
-
-right_format = """
+$fill\
 $kotlin\
 $java\
 $golang\
 $c\
 $cpp\
+$line_break\
+$character\
 """
-
 
 [fill]
 symbol = " "
