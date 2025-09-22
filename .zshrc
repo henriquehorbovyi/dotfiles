@@ -67,6 +67,15 @@ export NVM_DIR="$HOME/.nvm"
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
+# Kotlin Native
+export KOTLINPATH=$HOME/.config/kotlin-native
+export PATH=$PATH:$KOTLINPATH/bin
+
+
+# Komod
+export KOMODPATH=$HOME/.config/komod 
+export PATH=$PATH:$KOMODPATH
+
 # Starship setup
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init zsh)"
@@ -147,3 +156,4 @@ eval "$(starship init zsh)"
 # - $ZSH_CUSTOM/aliases.zsh
 # - $ZSH_CUSTOM/macos.zsh
 # For a full list of active aliases, run `alias`.
+export PATH="/Users/henriquehorbovyi/.local/bin:$PATH"

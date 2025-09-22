@@ -15,6 +15,11 @@ return {
 				markdown = { "prettier", "marksman" },
 				lua = { "stylua" },
 			},
+			formatters = {
+				clang_format = {
+					prepend_args = { "--style={IndentWidth: 4, TabWidth: 4, UseTab: Always}" },
+				},
+			},
 			format_on_save = {
 				lsp_fallback = true,
 				async = false,

@@ -176,10 +176,10 @@ return {
 
 		-- Kotlin Community LSP pluging
 		-- NOTE: This is an alternative while Kotlin Official is not that good!
-		lspconfig.kotlin_language_server.setup({
-			capabilities = capabilities,
-		})
-
+		-- lspconfig.kotlin_language_server.setup({
+		-- 	capabilities = capabilities,
+		-- })
+		--
 		-- Kotlin Official LSP setup
 		-- TODO: I'd like to initialize kotlin LSP like that and not in init.lua
 

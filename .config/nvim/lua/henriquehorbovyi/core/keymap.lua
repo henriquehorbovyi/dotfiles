@@ -59,3 +59,6 @@ keymap.set("n", "<leader>wv", "<C-w>v", { desc = "Split (W)indow (V)ertically" }
 keymap.set("n", "<leader>wh", "<C-w>s", { desc = "Split (W)indow (H)orizontally" })
 keymap.set("n", "<leader>we", "<C-w>=", { desc = "(W)indow (E)qually Displayed" })
 keymap.set("n", "<leader>wq", "<C-w>q", { desc = "(W)indow (Q)uit" })
+
+-- Make / Run projects
+keymap.set("n", "<leader>r", ":update<CR> :make<CR>")
