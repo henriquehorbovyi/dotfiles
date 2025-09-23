@@ -7,37 +7,10 @@ return {
 	},
 	config = function()
 		local capabilities = require("blink.cmp").get_lsp_capabilities() -- Import capabilities from blink.cmp
-		local lspconfig = require("lspconfig")
 
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 			callback = function(ev)
-				-- Enable document highlight if supported by the LSP server
-				-- local client = vim.lsp.get_client_by_id(ev.data.client_id)
-				-- local bufnr = ev.buf
-
-				-- if client and client.server_capabilities.documentHighlightProvider then
-				-- 	local highlight_augroup = vim.api.nvim_create_augroup("lsp_document_highlight", {
-				-- 		clear = false,
-				-- 	})
-				-- 	vim.opt.updatetime = 60 -- 60ms instead of default 4000ms
-				--
-				-- 	vim.api.nvim_clear_autocmds({
-				-- 		buffer = bufnr,
-				-- 		group = highlight_augroup,
-				-- 	})
-				-- 	vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-				-- 		group = highlight_augroup,
-				-- 		buffer = bufnr,
-				-- 		callback = vim.lsp.buf.document_highlight,
-				-- 	})
-				-- 	vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
-				-- 		group = highlight_augroup,
-				-- 		buffer = bufnr,
-				-- 		callback = vim.lsp.buf.clear_references,
-				-- 	})
-				-- end
-				--
 				-- Buffer local mappings
 				-- Check `:help vim.lsp.*` for documentation on any of the below functions
 				local opts = { buffer = ev.buf, silent = true }
@@ -86,10 +59,10 @@ return {
 
 		-- Define sign icons for each severity
 		local signs = {
-			[vim.diagnostic.severity.ERROR] = " ",
-			[vim.diagnostic.severity.WARN] = " ",
+			[vim.diagnostic.severity.ERROR] = " ",
+			[vim.diagnostic.severity.WARN] = " ",
 			[vim.diagnostic.severity.HINT] = "󰠠 ",
-			[vim.diagnostic.severity.INFO] = " ",
+			[vim.diagnostic.severity.INFO] = " ",
 		}
 
 		-- Diagnostic configuration
@@ -111,8 +84,8 @@ return {
 			},
 		})
 
-		-- Lua LSP setup
-		lspconfig.lua_ls.setup({
+		-- Lua LSP setup (NEW API - no .setup())
+		vim.lsp.config.lua_ls = {
 			capabilities = capabilities,
 			settings = {
 				Lua = {
@@ -130,10 +103,10 @@ return {
 					},
 				},
 			},
-		})
+		}
 
 		-- Go (gopls)
-		lspconfig.gopls.setup({
+		vim.lsp.config.gopls = {
 			capabilities = capabilities,
 			settings = {
 				gopls = {
@@ -149,10 +122,10 @@ return {
 			init_options = {
 				usePlaceholders = true,
 			},
-		})
+		}
 
 		-- C/C++ (clangd)
-		lspconfig.clangd.setup({
+		vim.lsp.config.clangd = {
 			capabilities = capabilities,
 			cmd = {
 				"clangd",
@@ -168,22 +141,21 @@ return {
 				completeUnimported = true,
 				clangdFileStatus = true,
 			},
-		})
+		}
 
-		lspconfig.bashls.setup({
+		vim.lsp.config.bashls = {
 			capabilities = capabilities,
-		})
+		}
 
-		-- Kotlin Community LSP pluging
+		-- Kotlin Community LSP plugin
 		-- NOTE: This is an alternative while Kotlin Official is not that good!
-		-- lspconfig.kotlin_language_server.setup({
+		-- vim.lsp.config.kotlin_language_server = {
 		-- 	capabilities = capabilities,
-		-- })
+		-- }
 		--
 		-- Kotlin Official LSP setup
 		-- TODO: I'd like to initialize kotlin LSP like that and not in init.lua
-
-		-- lspconfig.kotlin_lsp.setup({ capabilities = capabilities })
+		-- vim.lsp.config.kotlin_lsp = { capabilities = capabilities }
 
 		-- Add other LSP servers here
 	end,
