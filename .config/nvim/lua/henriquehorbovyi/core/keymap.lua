@@ -14,6 +14,8 @@ keymap.set("n", "<leader>la", vim.cmd.La) -- Lazy Package Manager
 -- Override 0 and $ for start and end of line
 keymap.set("n", "B", "^")
 keymap.set("n", "E", "$")
+keymap.set("v", "E", "$")
+keymap.set("v", "B", "$")
 
 -- Yanks to clipboard
 keymap.set("v", "<leader>y", '"+y')
@@ -50,8 +52,6 @@ vim.keymap.set("n", "<leader>tp", "<cmd>bprevious<CR>", { desc = "Go to previous
 
 -- File explorer
 keymap.set("n", "<leader>ee", ":NvimTreeToggle<CR>")
-keymap.set("n", "<leader>ef", ":NvimTreeFindFileToggle<CR>")
-keymap.set("n", "<leader>ec", ":NvimTreeCollapse<CR>")
 keymap.set("n", "<leader>er", ":NvimTreeRefresh<CR>")
 
 -- Window management

@@ -31,6 +31,8 @@ return {
 				vim.keymap.set("n", "<", api.node.navigate.sibling.prev, opts("Previous Sibling"))
 				vim.keymap.set("n", ".", api.node.run.cmd, opts("Run Command"))
 				vim.keymap.set("n", "-", api.tree.change_root_to_parent, opts("Up"))
+				vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
+				vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
 
 				-- CUSTOM: Change 'e' to 'c' for creating new file
 				vim.keymap.set("n", "c", api.fs.create, opts("Create"))
