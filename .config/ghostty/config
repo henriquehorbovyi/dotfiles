@@ -49,7 +49,7 @@ cursor-style-blink = true
 # cursor-invert-fg-bg = true
 
 font-family = "JetBrains Mono"
-font-size = 18
+font-size = 13
 
 
 # palette = 0=#51576d

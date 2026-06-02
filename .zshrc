@@ -157,3 +157,4 @@ eval "$(starship init zsh)"
 # - $ZSH_CUSTOM/macos.zsh
 # For a full list of active aliases, run `alias`.
 export PATH="/Users/henriquehorbovyi/.local/bin:$PATH"
+export PATH=$PATH:$HOME/.maestro/bin
